@@ -1,0 +1,8 @@
+{
+    "dev": {
+        "GOOGLE_CLIENT_ID": "abc123"
+    },
+    "prod": {
+        "GOOGLE_CLIENT_ID": "def456"
+    }
+}

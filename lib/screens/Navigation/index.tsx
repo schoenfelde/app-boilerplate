@@ -1,8 +1,9 @@
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Login from '../Login';
+import Home from '../Home';
 import Welcome from '../Welcome';
 
-const stackNavigator =  createStackNavigator(
+const unauthorizedStack =  createStackNavigator(
     {
         LogIn: {
             screen: Login,
@@ -25,4 +26,23 @@ const stackNavigator =  createStackNavigator(
     }
 )
 
-export default createAppContainer(stackNavigator);
+const authorizedStack =  createStackNavigator(
+    {
+        Home: {
+            screen: Home,
+            navigationOptions: {
+                title: "Home"
+            }
+        }
+    },
+    {
+        initialRouteName: 'Home',
+        navigationOptions: {
+            gesturesEnabled: false,
+        }
+    }
+)
+
+export const AuthenticatedNavigation = createAppContainer(authorizedStack)
+export const UnauthenticatedNavigation =  createAppContainer(unauthorizedStack);
+const Navigator = ({ user }:any) => user ? UnauthenticatedNavigation : AuthenticatedNavigation

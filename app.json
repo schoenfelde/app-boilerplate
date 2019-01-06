@@ -23,7 +23,7 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "ollieware.app.boilerplate"
     }
   }
 }
